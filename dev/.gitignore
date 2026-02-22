@@ -1,0 +1,57 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are usually used to override resources locally for testing purposes
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include tfvars files which are likely to contain sensitive data, such as passwords, private keys, and other secrets
+*.tfvars
+*.tfvars.json
+
+# Include any private key files (e.g., for SSH access)
+*.pem
+*.key
+
+# Include .terraformrc or terraform.rc configuration files
+.terraformrc
+terraform.rc
+
+# Ignore the lock file used by Terraform 0.14+ for dependency locking
+.terraform.lock.hcl
+
+# Ignore CLI configuration files
+.terraform.d
+
+# Ignore large files
+*.iso
+*.zip
+*.tar.gz
+*.rar
+*.exe
+*.bin
+*.mp4
+*.mp3
+*.avi
+*.mov
+*.mkv
+*.wav
+
+
+# Ignore specific directories (you can modify these based on your actual directory structure)
+dev - env copy 4/
+dev copy 3/
+z-dev--error/
+z-dev--org/
+
+# Ignore any other large files you know are not necessary
+large_files/
