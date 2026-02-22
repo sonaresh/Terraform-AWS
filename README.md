@@ -369,3 +369,70 @@ This project is ready for:
 - Internal platform foundation
 
 ---
+
+---
+
+# ⚠️ Important Notice – Account IDs & Configuration
+
+This repository is designed for demonstration and learning purposes.
+
+If you observe any AWS Account IDs, ARNs, AMI IDs, or region-specific values referenced in the code:
+
+- Do **not** use them directly.
+- Replace them with values from your own AWS account.
+- Prefer using Terraform input variables instead of hard-coded values.
+
+## Recommended Best Practice
+
+Avoid hardcoding:
+
+- AWS Account IDs
+- ARNs
+- AMI IDs
+- Region names
+- VPC CIDR blocks
+- S3 backend bucket names
+- DynamoDB table names
+
+Instead, use dynamic variables.
+
+### Example
+
+```hcl
+variable "aws_account_id" {
+  description = "AWS Account ID"
+  type        = string
+}
+
+data "aws_caller_identity" "current" {}
+
+output "current_account" {
+  value = data.aws_caller_identity.current.account_id
+}
+```
+
+Or dynamically reference the current account:
+
+```hcl
+data "aws_caller_identity" "current" {}
+
+locals {
+  account_id = data.aws_caller_identity.current.account_id
+}
+```
+
+This ensures the infrastructure remains reusable, portable, and environment-agnostic.
+
+---
+
+# 🔐 Security Reminder
+
+Before deploying:
+
+- Review all variables
+- Replace any hard-coded identifiers
+- Ensure no sensitive values are committed to Git
+- Use environment variables or secure backend configuration where required
+
+---
+
